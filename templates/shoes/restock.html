@@ -1,0 +1,32 @@
+
+<!-- templates/shoes/restock.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center mt-5" style="min-height: 70vh;">
+  <div class="w-100" style="max-width: 500px;">
+    <div class="card shadow p-4">
+      <h2 class="text-center text-warning mb-4">Restock Shoe</h2>
+      
+      <p class="text-center fs-5 mb-4">
+        <strong>{{ shoe.product }}</strong> has the lowest quantity:
+        <span class="fw-bold text-danger">{{ shoe.quantity }}</span>
+      </p>
+      
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="row justify-content-center mb-3">
+          <div class="col-12">
+            <label for="quantity" class="form-label">Add Quantity:</label>
+            <input type="number" name="quantity" id="quantity" class="form-control text-center" required>
+          </div>
+        </div>
+        
+        <div class="d-grid">
+          <button type="submit" class="btn btn-warning">Update Stock</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

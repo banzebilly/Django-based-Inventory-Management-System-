@@ -1,0 +1,21 @@
+<!-- templates/shoes/search.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center mt-5" style="min-height: 60vh;">
+  <div class="w-100" style="max-width: 600px;">
+    <div class="card shadow p-4">
+      <h2 class="mb-4 text-center text-primary">Search Result</h2>
+      {% if shoe %}
+        <p class="text-center">
+          <strong>{{ shoe.product }}</strong> ({{ shoe.code }}) – {{ shoe.country }}<br>
+          <span class="text-muted">Cost:</span> {{ shoe.cost }} | 
+          <span class="text-muted">Quantity:</span> {{ shoe.quantity }}
+        </p>
+      {% else %}
+        <p class="text-danger text-center">Shoe not found.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

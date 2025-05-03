@@ -1,0 +1,15 @@
+<!-- templates/shoes/highest.html -->
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+  <div class="text-center shadow p-4 rounded bg-light " >
+    <h2 class="mb-3 text-warning p-3">Shoe With Highest Quantity</h2>
+    <p class="fs-5">
+      <strong class="text-dark">{{ shoe.product }}</strong> 
+      <span class="text-muted">({{ shoe.code }})</span> 
+      has the highest quantity: <span class="fw-bold text-success">{{ shoe.quantity }}</span>
+    </p>
+    <p class="text-success fw-semibold">This shoe is currently on sale!</p>
+  </div>
+</div>
+{% endblock %}

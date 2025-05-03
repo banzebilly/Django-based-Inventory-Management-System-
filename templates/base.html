@@ -1,0 +1,96 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shoe Inventory</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .navbar-custom {
+      background: linear-gradient(90deg, #343a40 0%, #495057 100%);
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #ffc107 !important;
+    }  .navbar-toggler {
+    border-color: #ffc107; /* Border in warning color */
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,193,7, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+
+    .nav-link {
+      color: #f8f9fa !important;
+      transition: all 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #ffc107 !important;
+      text-decoration: underline;
+    }
+    /* Custom Footer Style */
+    .footer {
+      background-color: #343a40;
+      color: #f8f9fa;
+      padding: 20px;
+      border-top: 2px solid #495057;
+      text-align: center;
+    }
+    .footer a {
+      color: #ffc107;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom shadow-sm sticky-top">
+
+    <div class="container">
+      <a class="navbar-brand" href="/">Shoe Inventory</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/">View All</a></li>
+          <li class="nav-item"><a class="nav-link" href="/add/">Add Shoe</a></li>
+          <li class="nav-item"><a class="nav-link" href="/restock/">Restock</a></li>
+          <li class="nav-item"><a class="nav-link" href="/value/">Value Per Item</a></li>
+          <li class="nav-item"><a class="nav-link" href="/highest/">Highest Quantity</a></li>
+          <li class="nav-item"><a class="nav-link" href="/search/">Search</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container mt-4">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer mt-5">
+    <p>&copy; 2025 Shoe Inventory. All rights reserved. Banze Billy</p>
+    <p>
+      <a href="/">Home</a> | 
+      <a href="/add/">Add Shoe</a> | 
+      <a href="/restock/">Restock</a> | 
+      <a href="/value/">Value Per Item</a> | 
+      <a href="/highest/">Highest Quantity</a> | 
+      <a href="/search/">Search</a>
+    </p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

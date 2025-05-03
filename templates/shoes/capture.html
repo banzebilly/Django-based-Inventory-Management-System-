@@ -1,0 +1,48 @@
+<!-- templates/shoes/capture.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center mt-5" style="min-height: 70vh;">
+  <div class="w-100" style="max-width: 600px;">
+    <div class="card shadow p-4">
+      <h2 class="mb-4 text-center text-warning">Add New Shoe</h2>
+      <form method="post" novalidate class="">
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="col-md-6 mb-3 ">
+            {{ form.country.label_tag }}
+            {{ form.country }}
+          </div>
+          <div class="col-md-6 mb-3">
+            {{ form.code.label_tag }}
+            {{ form.code }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            {{ form.product.label_tag }}
+            {{ form.product }}
+          </div>
+          <div class="col-md-6 mb-3">
+            {{ form.cost.label_tag }}
+            {{ form.cost }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            {{ form.quantity.label_tag }}
+            {{ form.quantity }}
+          </div>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-warning">Add Shoe</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4 text-center">Value Per Item</h2>
+
+  <!-- Make the table responsive with proper wrapping -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle">
+      <thead class="table-dark text-warning">
+        <tr>
+          <th class="text-warning">Product</th>
+          <th class="text-warning">Cost</th>
+          <th class="text-warning">Quantity</th>
+          <th class="text-warning">Total Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for shoe, value in values %}
+        <tr>
+          <td>{{ shoe.product }}</td>
+          <td>{{ shoe.cost }}</td>
+          <td>{{ shoe.quantity }}</td>
+          <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
