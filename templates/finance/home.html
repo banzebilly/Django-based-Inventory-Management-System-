@@ -1,0 +1,20 @@
+<!-- templates/shoes/capture.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center mt-5" style="min-height: 70vh;">
+  <div class="w-100" style="max-width: 600px;">
+    <div class="card shadow p-4">
+      <h2 class="mb-4 text-center text-warning">Welcome to our finance calculator</h2>
+      <h4 class="mb-4 text-center">Access <strong>Investment or Bond</strong> calculation</h4>
+
+      <div class="d-flex justify-content-center gap-3">
+        <a href="{% url 'investment' %}" class="btn btn-primary">Investment</a>
+        <a href="{% url 'bond' %}" class="btn btn-secondary">Bond</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

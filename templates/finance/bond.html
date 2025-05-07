@@ -1,0 +1,49 @@
+<!-- templates/shoes/capture.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center mt-5" style="min-height: 70vh;">
+  <div class="w-100" style="max-width: 600px;">
+    <div class="card shadow p-4">
+      <h2 class="mb-4 text-center text-primary">Welcome to the Bond calculator</h2>
+      
+      <form method="post" novalidate action="{% url  'bond' %}">
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            {{ form.present_value.label_tag }}
+            {{ form.present_value }}
+          </div>
+          <div class="col-md-6 mb-3">
+            {{ form.interest_rate.label_tag }}
+            {{ form.interest_rate }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            {{ form.months.label_tag }}
+            {{ form.months }}
+          </div>
+        </div>
+
+     
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        
+        {% if monthly_payment %}
+        <div class="alert alert-success mt-3 text-center">
+          Monthly Payment: <strong>R {{ monthly_payment|floatformat:2 }}</strong>
+        </div>
+      {% endif %}
+      
+      </form>
+
+      <a href="{% url 'finance_home'%}" class="btn btn-outline-primary mt-5">Go back</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

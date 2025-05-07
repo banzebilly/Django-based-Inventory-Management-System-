@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'inventory',
+    'import_export',
+    'investment_and_bond_app',
 ]
 
 MIDDLEWARE = [

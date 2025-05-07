@@ -1,0 +1,63 @@
+<!-- templates/shoes/capture.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center mt-5" style="min-height: 70vh;">
+  <div class="w-100" style="max-width: 600px;">
+    <div class="card shadow p-4">
+      <h2 class="mb-4 text-center text-primary">Welcome to the investment calculator</h2>
+      
+      <form method="post" novalidate action="{% url 'investment' %}">
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            {{ form.deposit.label_tag }}
+            {{ form.deposit }}
+          </div>
+          <div class="col-md-6 mb-3">
+            {{ form.interest_rate.label_tag }}
+            {{ form.interest_rate }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            {{ form.years.label_tag }}
+            {{ form.years }}
+          </div>
+        </div>
+
+        <!-- Custom Radio buttons for interest type -->
+        <div class="mb-3">
+          <label class="form-label">Interest Type</label><br>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="interest_type" id="simpleRadio" value="simple"
+              {% if form.data.interest_type == 'simple' %}checked{% endif %}>
+            <label class="form-check-label" for="simpleRadio">Simple</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="interest_type" id="compoundRadio" value="compound"
+              {% if form.data.interest_type == 'compound' %}checked{% endif %}>
+            <label class="form-check-label" for="compoundRadio">Compound</label>
+          </div>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        
+        {% if final_amount %}
+            <div class="alert alert-success mt-3 text-center">
+                Final Amount: <strong>${{ final_amount|floatformat:2 }}</strong>
+            </div>
+        {% endif %}
+      </form>
+
+      <a href="{% url 'finance_home'%}" class="btn btn-outline-primary mt-5">Go back</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
